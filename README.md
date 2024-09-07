@@ -32,6 +32,8 @@ The reading material covers basic types, selections, and iterations.
 
 # Lecture 8: OOP (Part 3)
 
+# Hello hello mic testing 1 2 3!!:)
+
 # my_vscode_files
 
 This folder contains my custom `.vscode` files. Students are free to reuse them.
