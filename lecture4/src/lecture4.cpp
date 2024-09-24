@@ -1,7 +1,7 @@
 /**
- * @file lecture3.cpp
+ * @file lecture4.cpp
  * @author Zeid Kootbally (zeidk@umd.edu)
- * @brief Code for lecture on STL Containers
+ * @brief Code for lecture on Containers
  * @version 0.1
  * @date 2024-09-15
  *
