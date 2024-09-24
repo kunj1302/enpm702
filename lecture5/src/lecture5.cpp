@@ -16,7 +16,11 @@
 
 //</> 1
 //=====================
+int sum(int a, int b);
 
+int main(){
+    sum(2,3);
+}
 
 //</> 2
 //=====================
@@ -28,6 +32,8 @@
 // int add(int a, int b) {
 //     return a + b;
 // }
+
+
 
 // int main() {
 //     std::cout << add(1, 2) << '\n';
