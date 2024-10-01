@@ -71,6 +71,12 @@ Practical exercises reinforce these concepts, preparing for the upcoming smart p
 
 # Lecture 6: Smart Pointers
 
+Overview of smart pointers:
+
+  - Unique pointers
+  - Shared pointers
+  - Weak pointers
+
 # Lecture 7: OOP (Part 1)
 
 # Lecture 8: OOP (Part 2)
