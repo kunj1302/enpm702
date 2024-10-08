@@ -79,6 +79,8 @@ Overview of smart pointers:
 
 # Lecture 7: OOP (Part 1)
 
+This lecture covers the design and implementation phases of OOP, including class design, method definitions, access specifiers, constructors, destructors, and static attributes and methods. It also includes several code examples and exercises, guiding students through creating and managing objects, accessing attributes, and implementing OOP principles in C++. The document highlights best practices and common conventions used in C++ programming.
+
 # Lecture 8: OOP (Part 2)
 
 # Lecture 9: OOP (Part 3)

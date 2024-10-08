@@ -1,0 +1,43 @@
+@startuml
+start
+
+:Student logs in;
+:Student selects an action;
+
+switch (Action)
+    case (Enroll in Course)
+        :Select course to enroll;
+        if (Is the course available?) then (Yes)
+            :Call enroll(course_id);
+            :Add course to student's courses_;
+            :Add student to course's students_;
+            :Display enrollment confirmation;
+        else (No)
+            :Display error message;
+        endif
+    case (Drop Course)
+        :Select course to drop;
+        :Call drop_course(course_id);
+        :Remove course from student's courses_;
+        :Remove student from course's students_;
+        :Display drop confirmation;
+    case (Submit Assignment)
+        :Select assignment and course;
+        :Call submit_assignment(assignment_id, course_id);
+        :Upload assignment file;
+        :Display submission confirmation;
+    case (Take Quiz)
+        :Select quiz and course;
+        :Call take_quiz(quiz_id, course_id);
+        :Complete quiz;
+        :Submit quiz answers;
+    case (View Grades)
+        :Call view_grades();
+        :Display grades;
+    case (Log Out)
+        :Student logs out;
+        stop
+endswitch
+
+stop
+@enduml

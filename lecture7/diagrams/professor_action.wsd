@@ -1,0 +1,29 @@
+@startuml
+start
+
+:Professor logs in;
+:Professor selects an action;
+
+switch (Action)
+    case (Teach Course)
+        :Select course to teach;
+        :Call teach_course(course_id);
+        :Add course to professor's courses_;
+        :Display teaching assignment confirmation;
+    case (Assign Grade)
+        :Select student and course;
+        :Enter grade;
+        :Call assign_grade(student_id, course_id, grade);
+        :Update student's grades_;
+        :Display grade assignment confirmation;
+    case (View Course Roster)
+        :Select course;
+        :Call list_students();
+        :Display list of enrolled students;
+    case (Log Out)
+        :Professor logs out;
+        stop
+endswitch
+
+stop
+@enduml
