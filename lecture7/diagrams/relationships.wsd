@@ -1,0 +1,33 @@
+@startuml "Relationships"
+title Relationships
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+
+class A {}
+
+class B {}
+
+class C {}
+
+class D {}
+
+' composition
+C *-- "1..*" A : action <<type>> >
+' aggregation
+D o-- "1..*" C : action <<type>> >
+' inheritance
+A <|-- B: <<public>>
+
+D "1..*" -- "1..*" B : action <<type>> >
+
+note as N1
+<b>File</b>: relationships.wsd
+end note
+
+
+@enduml

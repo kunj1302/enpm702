@@ -83,6 +83,16 @@ This lecture covers the design and implementation phases of OOP, including class
 
 # Lecture 8: OOP (Part 2)
 
+This lecture focuses on advanced concepts in object-oriented programming (OOP). The lecture covers several important topics:
+
+  - **Exception Handling**: Detailed explanations of how to manage runtime errors using try, catch, and throw in C++. It includes examples of basic exception handling, throwing exceptions, catching exceptions, and handling multiple exceptions. The key terms such as "throwing an exception" and "catching an exception" are discussed with code examples.
+
+  - **Relationships in OOP**:
+    - *Association*: A type of relationship between two classes where one class is aware of the other. Different kinds of associations are explained, including directional, unidirectional, and bidirectional associations.
+    - *Aggregation*: A whole-part relationship where the part can exist independently of the whole.
+    - *Composition*: A stronger form of association where the part cannot exist independently of the whole and is destroyed when the whole is destroyed.
+    - *Inheritance*: The concept of inheritance is thoroughly discussed, including generalization-specialization relationships, inheritance specifiers (public, protected, private), and how constructors work in the context of inheritance. The lecture provides examples and tasks for students to work on, focusing on implementing derived classes like GasolineVehicle and ElectricVehicle.
+
 # Lecture 9: OOP (Part 3)
 
 # Hello hello mic testing 1 2 3!!:)

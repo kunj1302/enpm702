@@ -1,0 +1,21 @@
+@startuml "Class Diagram"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+class ClassName {
+    - attribute1: Type
+    - attribute1: Type
+    + method1(): ReturnType
+    + method2(param: Type): ReturnType
+}
+
+note as N1
+<b>File</b>: class.wsd
+end note
+
+@enduml

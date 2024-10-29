@@ -1,0 +1,25 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+class Professor {
+- name_: std::string
+-books_: std::vector<std::weak_ptr<Book>>
+
+}
+
+class Book {
+-title_: std::string
+-authors_: std::vector<std::weak_ptr<Professor>>
+
+}
+
+Book "0..*" --  "1..*" Professor: > Was written by
+
+
+
+@enduml

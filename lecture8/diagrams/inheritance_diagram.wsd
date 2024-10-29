@@ -1,0 +1,67 @@
+@startuml "Inheritance Diagram"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+Package university <<Frame>>{
+
+' ' Struct Date
+' struct Date {
+'     +  day_: unsigned short
+'     + month_: unsigned short
+'     + year_: unsigned short
+'     + Date(d: unsigned short, m: unsigned short, y: unsigned short)
+'     - is_valid() const: bool
+'     - is_leap_year() const: bool
+' }
+
+' Classes
+abstract class Person {
+    - name_: std::string  
+    - email_: std::string
+    - phone_number_: std::string
+    - date_of_birth_: std::unique_ptr<Date>
+    - department_: std::weak_ptr<Department> 
+    + Person(name: std::string, email: std::string, phone_number: std::string, dob: Date)
+    + virtual ~Person()
+    + log_in(): void
+    + log_out(): void
+    + print_date_of_birth() const: void
+}
+
+class Student {
+    - student_id_: std::string 
+    - enrolled_courses_: std::vector<std::shared_ptr<Course>>
+    - grades_: std::unordered_map<std::string, float>
+    + Student(name: std::string, email: std::string, phone_number: std::string, dob: Date, student_id: std::string)
+    + enroll_in_course(course: std::shared_ptr<Course>): void
+    + drop_course(course: std::shared_ptr<Course>): void
+    + view_grades() const: void
+    + receive_grade(course_id: std::string, grade: float): void
+}
+
+class Professor extends Person {
+    -  professor_id_: std::string
+    -  courses_taught_: std::vector<std::shared_ptr<Course>>
+    + Professor(name: std::string, email: std::string, phone_number: std::string, dob: Date, professor_id: std::string)
+    +  assign_to_course(course: std::shared_ptr<Course>): void
+    +  assign_grade(student: std::shared_ptr<Student>, course: std::shared_ptr<Course>, grade: float): void
+}
+
+' Inheritance Relationships
+' Person <|-- Student
+' Person <|-- Professor
+
+' Composition Relationships
+' Person *-- "1" Date : has >
+
+
+' Professor "0..*" -- "0..*" Student : interacts >
+
+Student -up-|> Person
+}
+@enduml

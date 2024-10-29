@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 
 class A {
    public:
@@ -11,7 +11,7 @@ class A {
 
 class B {
    public:
-    B(): a_{2} {
+    B() {
         std::cout << "default ctor B\n";
         a_ = A(2);  // calls param ctor for A
     }

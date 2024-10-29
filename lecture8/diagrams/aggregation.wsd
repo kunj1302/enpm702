@@ -1,0 +1,9 @@
+@startuml "Aggregation"
+class Team {
+}
+
+class Player {
+}
+
+Team "0..1" o-- "1..*" Player : > has
+@enduml

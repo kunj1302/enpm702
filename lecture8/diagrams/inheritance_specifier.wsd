@@ -1,0 +1,43 @@
+@startuml "Inheritance Specifiers"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+class Base{
++base_pub_: int
+#base_pro_: int
+-base_pri_: int
+}
+
+class DerivedPublic{
+<<inherited>> +base_pub_: int
+<<inherited>> #base_pro_: int
+<<inherited>> -base_pri_: int
+-derived_: int
+}
+
+class DerivedPrivate{
+<<inherited>> -base_pub_: int
+<<inherited>> -base_pro_: int
+<<inherited>> -base_pri_: int
+-derived_: int
+}
+
+class DerivedProtected{
+<<inherited>> #base_pub_: int
+<<inherited>> #base_pro_: int
+<<inherited>> -base_pri_: int
+-derived_: int
+}
+
+Base <|-- DerivedPublic: <<public>>
+Base <|-- DerivedPrivate: <<private>>
+Base <|-- DerivedProtected: <<protected>>
+
+
+
+@enduml

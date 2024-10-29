@@ -1,0 +1,20 @@
+@startuml "Date Class"
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+class Date {
+    - day_: unsigned short
+    - month_: unsigned short
+    - year_: unsigned short
+    - is_valid_date(day: unsigned short, month: unsigned short, year: unsigned short ) const: bool
+    - get_days_in_month(month: unsigned short, year: unsigned short) const: unsigned short 
+    - {static} is_leap_year(year: unsigned short): bool
+    + Date(d: unsigned short, m: unsigned short, y: unsigned short)
+    + print_date() const: void
+}
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class House {
+}
+
+class Room {
+}
+
+House *-- "1..*" Room : > contains
+@enduml

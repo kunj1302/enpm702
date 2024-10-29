@@ -1,0 +1,76 @@
+@startuml "University Management System"
+title University Management System
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+Package university <<Frame>>{
+
+note as N1
+<b>File</b>: university_class_diagram_minimal.wsd
+end note
+
+' Define the Grade struct
+struct Grade {
+    ' - course_id: std::string
+    ' - assessment_id: std::string
+    ' - score: double
+    ' - feedback: std::string
+    ' - date: Date
+}
+
+
+class Date {
+}
+
+' Forward declarations for related classes
+class Course {
+
+}
+
+class Department {
+
+}
+
+' Student class
+class Student {
+    ' - student_id_: std::string
+    ' - enrolled_courses_: std::vector<std::shared_ptr<Course>>
+    ' - grades_: std::vector<Grade>
+    ' - department_: std::weak_ptr<Department>
+
+    ' + Student(name: std::string, email: std::string, phone_number: std::string, dob: Date, student_id: std::string)
+    
+    ' + get_student_id(): std::string
+    ' + get_enrolled_courses(): std::vector<std::shared_ptr<Course>>
+    ' + get_grades(): std::vector<Grade>
+    ' + set_phone_number(phone_number: std::string): void
+    ' + set_department(dept: std::shared_ptr<Department>): void
+    ' + enroll_in_course(course: const std::shared_ptr<Course>&): bool
+    ' + drop_course(course: const std::shared_ptr<Course>&): bool
+    ' + take_quiz(course: const std::shared_ptr<Course>&, quiz_id: std::string): void
+    ' + submit_assignment(course: const std::shared_ptr<Course>&, assignment_id: std::string): bool
+    ' + view_grades() const: void
+    ' + get_course_by_id(course_id: std::string) const: std::optional<std::shared_ptr<Course>>
+}
+
+class Professor {}
+
+abstract class Person {}
+
+' Relationships
+Student "1..*" -- "1..*" Course : enrolls <<shared>> >
+Professor "0..*" -- "0..*" Course : teaches <<shared>> >
+Student "1" -- "0..*" Grade : receives <<shared>> >
+Professor "1..*" *-- "0..*" Grade : records <<shared>> > 
+Department "1" o-- "1..*" Person : manages <<shared>> >
+Department "1" *-- "0..*" Course : offers  <<shared>> >
+Person "1" -- "1" Date : has_dob <<unique>> >
+Grade "1" -- "1" Date : is_posted_on <<value>> > 
+Person <|-- Professor: <<public>>
+Person <|-- Student: <<public>>
+}
+@enduml

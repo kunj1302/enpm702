@@ -1,0 +1,80 @@
+@startuml "Student Activity"
+title (S): Student Activity
+start
+floating note left: <b>File</b>: student_activity_diagram.wsd
+
+:Student logs in;
+note right
+Call <color:red>""Person::log_in()""
+end note
+
+:Student selects an action;
+
+switch (Action)
+    case (Enroll in Course)
+        :Select course to enroll;
+        if (Is the course available?) then (Yes)
+            :Enroll student in course;
+note right
+Call <color:red>""Student::enroll_in_course()""
+====
+Add course to student's <color:red>""Student::enrolled_courses_""
+====
+Add student to course's <color:red>""Course::enrolled_students_""
+====
+Display enrollment confirmation
+end note
+        else (No) 
+            stop
+        endif
+    case (Drop Course)
+        :Student selects course to drop;
+note left
+Call <color:red>""Student::drop_course()""
+====
+Remove course from <color:red>""Student::enrolled_courses_""
+====
+Remove student from <color:red>""Course::enrolled_students_""
+====
+Display drop confirmation
+end note
+
+    case (Submit Assignment)
+        :Student selects assignment and course;
+note left
+Call <color:red>""Student::submit_assignment()""
+end note
+        :Upload assignment file;
+note left
+Display submission confirmation
+end note
+    case (Take Quiz)
+        :Student selects quiz and course;
+note left
+Call <color:red>""Student::take_quiz()""
+end note
+
+        :Student completes quiz;
+        :Student submits quiz answers;
+note left
+Display quiz results
+end note
+    case (View Grades)
+        :Select grades to view;
+note
+Call <color:red>""Student::view_grades()""
+====
+Display grades
+end note
+    case (Log Out)
+        :Student logs out;
+note
+Call <color:red>""Person::log_out()""
+====
+Display logout message
+end note
+        stop
+endswitch
+
+stop
+@enduml

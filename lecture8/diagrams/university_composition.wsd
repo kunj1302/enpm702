@@ -1,0 +1,54 @@
+@startuml "University Composition"
+title Composition and Aggregation
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+class Date {
+    - day_: unsigned short
+    - month_: unsigned short
+    - year_: unsigned short
+    - Date(d: unsigned short, m: unsigned short, y: unsigned short)
+    - is_valid() const: bool
+    - is_leap_year() const: bool
+}
+
+class Department {
+    - department_id_: std::string 
+    - department_name_: std::string 
+    - courses_: std::vector<std::shared_ptr<Course>>
+    - persons_: std::vector<std::shared_ptr<Person>>
+    + Department(department_id: std::string, department_name: std::string)
+    + ~Department()
+    + add_course(course_id: std::string, course_name: std::string, credits: int): void
+    + remove_course(course_id: std::string): void
+    + add_person(person: std::shared_ptr<Person>): void
+    + remove_person(person_name: std::string): void
+    + list_courses() const: void
+    + list_persons() const: void
+    + get_course_by_id(course_id: std::string) const: std::shared_ptr<Course>
+}
+
+abstract class Person {
+    - name_: std::string  
+    - email_: std::string
+    - phone_number_: std::string
+    - date_of_birth_: Date
+    - department_: std::weak_ptr<Department> 
+    + Person(name: std::string, email: std::string, phone_number: std::string, dob: Date, department: std::shared_ptr<Department>)
+    + virtual ~Person()
+    + log_in(): void
+    + log_out(): void
+    + get_department() const: std::shared_ptr<Department>
+    + get_name() const: std::string 
+    + get_date_of_birth() const: Date 
+    + print_date_of_birth() const: void
+}
+
+' Relationships
+Person "1" *-- "1" Date : has_dob <<value>> >
+Department "1" o-- "1..*" Person : manages <<shared>> >
+@enduml

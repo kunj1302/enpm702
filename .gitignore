@@ -31,8 +31,16 @@
 *.out
 *.app
 
+# Compressed files
+*.zip
+lecture8.zip
+
 # vscode
 .vscode
 
 # cmake stuff
 build
+
+# assignments
+rwa2
+

@@ -1,0 +1,51 @@
+@startuml "Driving Scenario"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+Package driving <<Frame>>{
+class Vehicle {
+    -model_: std::string
+    -color_: std::string
+    -engine_: std::unique_ptr<driving::Engine>
+    -driver_: std::shared_ptr<driving::Driver>
+    +Vehicle(model: std::string& <<const>>, color: std::string& <<const>>, horsepower: unsigned int)
+    +drive(double distance)): void
+    +set_driver(driver: std::shared_ptr<driving::Driver>): void
+}
+
+class Engine {
+    -horsepower_: unsigned int
+    +Engine(horsepower: unsigned int)
+    +start() <<const>> : void
+}
+
+class Driver {
+    -name_: std::string
+    -date_of_birth_: driving::Date
+    +Driver(name: std::string& <<const>>, dob: driving::Date)
+    +drive_vehicle() <<const>> : void
+    +get_birthdate() <<const>> : Date 
+    +get_name() <<const>> : &std::string <<const>> 
+}
+
+class Date {
+    - day_: unsigned short
+    - month_: unsigned short
+    - year_: unsigned short
+    - is_valid_date(day: unsigned short, month: unsigned short, year: unsigned short) <<const>>: bool 
+    - get_days_in_month(month: unsigned short, year: unsigned short) <<const>>: unsigned short
+    - {static} is_leap_year(year: unsigned short): bool
+    + Date(d: unsigned short, m: unsigned short, y: unsigned short)
+    + print_date() <<const>>: void
+}
+
+Vehicle *-- "1" Engine : has <<unique>> >
+Vehicle o-- "1" Driver : is_driven_by <<shared>> >
+Driver *-- "1" Date : has_birthdate <<value>> >
+}
+@enduml

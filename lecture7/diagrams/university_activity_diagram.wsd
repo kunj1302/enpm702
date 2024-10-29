@@ -1,0 +1,51 @@
+@startuml "University Management System"
+title University Management System
+
+
+
+start 
+floating note left: <b>File</b>: university_activity_diagram.wsd
+
+
+:Create department;
+note left
+Call <color:red>""Department::Department()""
+end note
+
+
+repeat
+:Add course;
+note left
+Call <color:red>""Department::add_course()""
+end note
+
+repeat while (More courses?) is (yes)
+
+repeat
+:Create person (Student/Professor);
+note left
+Call <color:red>""Student::Student()""
+====
+Call <color:red>""Professor::Professor()""
+end note
+:Add person to department;
+note left
+Call <color:red>""Department::add_person()""
+end note
+
+if (person is Student) then (yes)
+
+    (S)
+    detach
+    (S)
+else (no)
+    (P)
+    detach
+    (P)
+endif
+repeat while (More persons?) is (yes)
+
+stop
+
+
+@enduml

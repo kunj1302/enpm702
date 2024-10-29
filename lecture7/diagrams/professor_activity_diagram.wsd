@@ -1,0 +1,53 @@
+@startuml "Professor Activity"
+title (P): Professor Activity
+start
+floating note left: <b>File</b>: professor_activity_diagram.wsd
+
+:Professor logs in;
+note right
+Call <color:red>""Person::log_in()""
+end note
+:Professor selects an action;
+
+switch (Action)
+    case (Teach Course)
+        :Select course to teach;
+
+note right
+Call <color:red>""Professor::teach_course()""
+====
+Add course to <color:red>""Professor::courses_taught_""
+====
+Display teaching assignment confirmation
+end note
+    case (Assign Grade)
+        :Professor selects student and course;
+        :Professor enters grade;
+
+note right
+Call <color:red>""Professor::assign_grade()""
+====
+Update <color:red>""Student::grades_""
+====
+Display grade assignment confirmation
+end note
+
+    case (View Course Roster)
+        :Professor selects course;
+note right
+Call <color:red>""Professor::list_students()""
+====
+Display list of enrolled students
+end note
+    case (Log Out)
+        :Professor logs out;
+
+note right
+Call <color:red>""Person::log_out()""
+end note
+
+        stop
+endswitch
+
+stop
+@enduml

@@ -1,0 +1,67 @@
+@startuml "Driving Scenario"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+Package driving <<Frame>>{
+
+class ElectricVehicle {
+    -battery_capacity_: double
+    -battery_consumption_rate_: double
+    -battery_level_: double
+    +ElectricVehicle(model: std::string <<const>>,\n\tcolor: std::string <<const>>,\n\thorsepower: unsigned int,\n\tbattery_level: double,\n\tbattery_consumption_rate: double)
+    +full_recharge(): void
+    +display_battery_level() <<const>>: void
+    +{static}display_progressbar(current: int, total: int)
+    +drive(distance: double): void <<override>>
+}
+
+class GasolineVehicle {
+    -tank_capacity_: double
+    -fuel_level_: double
+    -fuel_consumption_rate_: double
+    +GasolineVehicle(model: std::string <<const>>,\n\tcolor: std::string <<const>>,\n\thorsepower: unsigned int,\n\ttank_capacity: double,\n\tfuel_consumption_rate: double)
+    +refuel(): void
+    +display_tank_level() <<const>>: void
+    +drive(distance: double): void <<override>>
+}
+
+abstract class Vehicle {
+    -model_: std::string
+    -color_: std::string
+    -engine_: std::unique_ptr<driving::Engine>
+    -driver_: std::shared_ptr<driving::Driver>
+    +Vehicle(model: std::string <<const>>,\n\tcolor: std::string <<const>>,\n\thorsepower: unsigned int)
+    +{abstract}drive(distance: double): void <<virtual>>
+    +set_driver(driver: std::shared_ptr<driving::Driver>): void
+}
+' class Engine {
+
+' }
+
+' class Driver {
+
+' }
+
+' class Date {
+
+' }
+
+
+
+ElectricVehicle --up|> Vehicle: <<public>>
+GasolineVehicle -up-|> Vehicle: <<public>>
+
+' left of Vehicle
+' GasolineVehicle
+
+
+' Vehicle *-- "1" Engine : has <<unique>> >
+' Vehicle o-- "1" Driver : is_driven_by <<shared>> >
+' Driver *-- "1" Date : has_birthdate <<value>> >
+}
+@enduml

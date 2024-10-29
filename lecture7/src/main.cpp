@@ -1,65 +1,218 @@
 
 
-//</> Example #2
+//</>--- code #1
 //=====================
-// #include <iostream>
-// #include "example2.hpp"
-// #include "example2.hpp"
 
-// extern int x;
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
 
 // int main() {
-//     std::cout << x << '\n';
+//     university::Date date;
+//     std::cout << sizeof date << '\n';
+//     date.get_attribute_offsets();
+
+//     auto u_date = std::make_unique<university::Date>();
+//     std::cout << sizeof u_date << '\n';
+//     std::cout << sizeof *u_date << '\n';
 // }
 
-//</> Example #7
-//=====================
+// //</>--- code #2
+// //=====================
+
 // #include <iostream>
-// #include "example7.hpp"
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date;
+//     date.get_attribute_offsets();
+// }
+
+//</>--- code #3
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date;
+//     date.print_date();
+// }
+
+//</>--- code #4
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     // const university::Date date1;            // date1 is const
+//     // std::cout << date1.get_day() << '\n';    // OK: get_day() is const
+//     // std::cout << date1.get_month() << '\n';  // compilation error
+
+//     university::Date date2;                  // date2 is non-const
+//     std::cout << date2.get_day() << '\n';    // OK: get_day() is const
+//     std::cout << date2.get_month() << '\n';  // OK: get_month() is non-const
+// }
+
+//</>--- code #5
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date;
+//     std::cout << date.get_day() << '\n';  // 15
+
+//     auto u_date = std::make_unique<university::Date>();
+//     std::cout << u_date->get_day() << '\n';  // 15
+// }
+
+//</>--- code #6
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     // parameterized ctor
+//     university::Date date{22, 2, 2023};
+//     date.print_date();
+
+//     date.get_test();
+// }
+
+//</> code #7
+//=====================
+// #include "code7.hpp"
 
 // int main(){
 //     B b;
 // }
 
-//</> Example #8
-//=====================
+// //</> code #8
+// //=====================
 // #include <iostream>
 
-// #include "example8.hpp"
+// #include "code8.hpp"
 
 // int main() {
 //     int some_value{43};
 //     DemoConstAndRef demo(10, some_value);
 // }
 
-//</> Example #12
-//=====================
-
-// #include <iostream>
-
-// #include "lecture12.hpp"
-// int DemoStaticAttribute::count = 0;  // initialization of class attribute
+// //</> code #9
+// //=====================
+// #include "code9.hpp"
 
 // int main() {
-//     DemoStaticAttribute demo1;                                    // default ctor called
-//     std::cout << "Initial count: " << demo1.get_count() << '\n';  // 1
-//     DemoStaticAttribute demo2;
-//     std::cout << "After creating two objects: " << demo2.get_count() << '\n';  // 2
-//     DemoStaticAttribute demo3;
-//     std::cout << "After creating three objects: " << demo3.get_count() << '\n';  // 3
+//     DemoThis demo_this;
+//     demo_this.initialize(5).print_value();  // chaining function calls
 // }
 
-//</> Example #13
-//=====================
-// #include <iostream>
+// //</> code #10, #11, #12, #13, #14
+// //=====================
+// #include "code10.hpp"
+// #include<iostream>
 
-// #include "lecture13.hpp"
-
-// int DemoStaticMethod::count = 0;  // initialize class attribute
+// int MyClass::count = 0;
 
 // int main() {
-//     std::cout << "Initial count: " << DemoStaticMethod::get_count() << '\n';
+//     std::cout << MyClass::count << '\n';
+// }
 
-//     DemoStaticMethod d1, d2, d3;
-//     std::cout << "After creating 3 objects: " << DemoStaticMethod::get_count() << '\n';
+// //</> code #15
+// //=====================
+// #include "code15.hpp"
+
+// int main() {
+//     int result{MathUtils::add(3, 4)};  // No need to create a MathUtils object
+// }
+
+// //</> code #16
+// //=====================
+// #include "code16.hpp"
+
+// int main() {
+//     auto regular_car = Car::create_regular_car();
+//     regular_car.drive();
+//     auto sports_car = Car::create_sports_car();
+//     sports_car.drive();
+// }
+
+//</> code #17
+// //=====================
+// #include "code17.hpp"
+// #include<iostream>
+
+// // Definition of static attribute
+// int Counter::count = 0;
+// int main() {
+//     // Increment the counter
+//     Counter::increment();
+//     Counter::increment();
+
+//     // Print the current count
+//     std::cout << "Current count: " << Counter::get_count() << '\n';
+
+//     // Increment the counter again
+//     Counter::increment();
+
+//     // Print the updated count
+//     std::cout << "Updated count: " << Counter::get_count() << '\n';
+// }
+
+//</> code #18
+// //=====================
+// #include <iostream>
+
+// #include "code18.hpp"
+
+// int main() {
+//     {
+//         std::cout << "--- First object" << '\n';
+//         MyClass* my_class_ptr{new MyClass()};  // Object created!
+//         delete my_class_ptr;                   // Object destroyed!
+//         std::cout << "--- Second object" << '\n';
+//         MyClass my_class;  // Object created!
+//     }  // Object destroyed!
+// }
+
+//</>--- code #19
+//=====================
+// #include <iostream>
+// #include "code19.hpp"
+
+// void test(Temperature celcius) {
+//     std::cout << celcius.get_celsius() << '\n';
+// }
+
+// int main() {
+//     test(36.5);
+// }
+
+//</>--- code #20
+//=====================
+// #include <iostream>
+// #include "code20.hpp"
+
+
+// void test(Unit unit) {
+//     unit.print_units();
+// }
+
+// int main() {
+//     test(3.5);
 // }

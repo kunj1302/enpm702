@@ -1,0 +1,24 @@
+@startuml "Minimal Inheritance"
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+Package university <<Frame>>{
+
+' Classes
+abstract class Person {
+}
+
+
+class Student extends Person {
+}
+
+class Professor extends Person {
+}
+
+}
+@enduml
