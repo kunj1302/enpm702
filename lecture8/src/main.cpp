@@ -69,36 +69,6 @@
 
 //</>--- code #3
 //=====================
-<<<<<<< HEAD
-#include "driving/date.hpp"
-#include "driving/engine.hpp"
-#include "driving/driver.hpp"
-#include "driving/vehicle.hpp"
-
-#include <iostream>
-
-
-int main(){
-
-    try{
-        driving::Date birthdate{driving::Date(28,2,2024)};
-    } catch(const std::invalid_argument& e){
-        std::cerr<<e.what()<<"\n";
-    }
-    driving::Engine engine(260);
-    engine.start();
-
-    driving::Driver alain("Alain Prost", driving::Date(1,1,1999));
-    alain.drive_vehicle();
-
-    auto hamilton = std::make_shared<driving::Driver>("Lewis Hamilton", driving::Date(2,2,2022));
-    driving::Vehicle tesla("ModelS", "Red", 260);
-    tesla.set_driver(hamilton);
-    tesla.drive();
-
-    // auto tesla = std::make_shared<driving::Vehicle>("ModelS", "Red", 260);
-}
-=======
 
 // #include <iostream>
 // #include <memory>
@@ -132,7 +102,6 @@ int main(){
 //     // tesla.set_driver(hamilton);
 
 // }
->>>>>>> upstream/main
 
 //</>--- code #4
 //=====================

@@ -8,34 +8,6 @@
 // Vehicle
 // ===========================================
 
-<<<<<<< HEAD
-/* write code for drive() and set_driver()*/
-void driving::Vehicle::drive() const{
-
-    if(driver_){
-
-        if(engine_){
-
-            // Arrow operator (*engine_.start() equivalent)
-            engine_->start();
-        }
-    }
-    else{
-        std::cout<<"There is no driver, the vehicle cannot move"<<"\n";
-    }
-
- 
-
-};
-
-void driving::Vehicle::set_driver(std::shared_ptr<driving::Driver> driver){
-    driver_ = driver;
-}
-
-// void set_driver(std::shared_ptr<driving::Driver> driver);
-
-
-=======
 void driving::Vehicle::drive(double distance) {
     if(driver_){
         if (engine_) {
@@ -50,7 +22,6 @@ void driving::Vehicle::set_driver(std::shared_ptr<driving::Driver> driver) {
     driver_ = driver;
 }
 
->>>>>>> upstream/main
 // // ===========================================
 // // ElectricVehicle
 // // ===========================================
