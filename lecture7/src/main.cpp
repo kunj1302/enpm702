@@ -1,5 +1,34 @@
 
 
+<<<<<<< HEAD
+=======
+namespace my_namespace {
+class A {
+   public:
+    A() : a1_{1}, a2_{2} {
+        // open a file
+        // open a socket
+        /* body of the constructor */
+    }
+
+    A(int x, int y) : a1_{x}, a2_{y} {
+        /* body of the constructor */
+    }
+    ~A(){}
+
+   private:
+    int a1_;
+    int a2_;
+
+};  // class A
+}  // namespace my_namespace
+
+int main() {
+    my_namespace::A first;
+    first.a1_;
+    // my_namespace::A second(1, 2);
+}
+>>>>>>> upstream/main
 //</>--- code #1
 //=====================
 
@@ -34,6 +63,7 @@
 //</>--- code #3
 //=====================
 
+<<<<<<< HEAD
 // #include <iostream>
 // #include <memory>
 
@@ -53,6 +83,51 @@
 // #include "date.hpp"
 
 // int main() {
+//     // const university::Date date1;            // date1 is const
+//     // std::cout << date1.get_day() << '\n';    // OK: get_day() is const
+//     // std::cout << date1.get_month() << '\n';  // compilation error
+
+//     university::Date date2;                  // date2 is non-const
+//     std::cout << date2.get_day() << '\n';    // OK: get_day() is const
+//     std::cout << date2.get_month() << '\n';  // OK: get_month() is non-const
+// }
+
+//</>--- code #5
+//=====================
+
+=======
+>>>>>>> upstream/main
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+//     university::Date date;
+<<<<<<< HEAD
+//     std::cout << date.get_day() << '\n';  // 15
+
+//     auto u_date = std::make_unique<university::Date>();
+//     std::cout << u_date->get_day() << '\n';  // 15
+// }
+
+//</>--- code #6
+=======
+//     date.print_date();
+// }
+
+//</>--- code #4
+>>>>>>> upstream/main
+//=====================
+
+// #include <iostream>
+// #include <memory>
+
+// #include "date.hpp"
+
+// int main() {
+<<<<<<< HEAD
+=======
 //     // const university::Date date1;            // date1 is const
 //     // std::cout << date1.get_day() << '\n';    // OK: get_day() is const
 //     // std::cout << date1.get_month() << '\n';  // compilation error
@@ -87,6 +162,7 @@
 // #include "date.hpp"
 
 // int main() {
+>>>>>>> upstream/main
 //     // parameterized ctor
 //     university::Date date{22, 2, 2023};
 //     date.print_date();
@@ -126,9 +202,15 @@
 // //=====================
 // #include "code10.hpp"
 // #include<iostream>
+<<<<<<< HEAD
 
 // int MyClass::count = 0;
 
+=======
+
+// int MyClass::count = 0;
+
+>>>>>>> upstream/main
 // int main() {
 //     std::cout << MyClass::count << '\n';
 // }
@@ -207,7 +289,10 @@
 //=====================
 // #include <iostream>
 // #include "code20.hpp"
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/main
 
 // void test(Unit unit) {
 //     unit.print_units();
